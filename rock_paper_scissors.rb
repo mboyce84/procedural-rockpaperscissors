@@ -37,7 +37,7 @@ loop do
 	elsif (user_choice == 'r' && computer_choice == 's') || (user_choice == 's' && computer_choice == 'p') || (user_choice == 'r' && computer_choice == 'p')
 		puts "\nYou won! You picked #{CHOICES[(user_choice)]} and the computer picked #{CHOICES[(computer_choice)]}."
 	else
-		puts "\n The computer won! You picked #{CHOICES[(user_choice)]} and the computer picked #{CHOICES[(computer_choice)]}."
+		puts "\nThe computer won! You picked #{CHOICES[(user_choice)]} and the computer picked #{CHOICES[(computer_choice)]}."
 	end
 
 # Replay logic
