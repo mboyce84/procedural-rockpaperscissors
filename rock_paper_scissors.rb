@@ -1,5 +1,8 @@
-# MjB's Rock, Paper, Scissors Ruby Game
+#TITLE: Rock, Paper, Scissors Ruby Game
+#AUTHOR: MjB
+#DESCRIPTION: Rock defeats (breaks) Scissors, Scissors defeats (cuts) Paper and Paper defeats (covers) Rock
 
+#METHODS BEGIN#
 # Method for the replay logic and input validation
 def replay(play_again_choice)
 	if play_again_choice == 'y' || play_again_choice == 'yes'
@@ -13,9 +16,11 @@ def replay(play_again_choice)
 		replay(play_again_choice)
 	end
 end
+#METHODS END#
 
+#MAIN APPLICATION BEGINS#
 # Hash for rock, paper scissors game setup
-CHOICES = {'p' => 'paper', 'r' => 'rock', 's' => 'scissors'}
+CHOICES = {'p' =&gt; 'paper', 'r' =&gt; 'rock', 's' =&gt; 'scissors'}
 
 puts "\n---------MjB's Rock Paper Scissors Ruby Game---------"
 puts "\nRules: Rock defeats (breaks) Scissors, Scissors defeats (cuts) Paper and Paper defeats (covers) Rock. This game is played against the computer."
@@ -34,10 +39,10 @@ loop do
 	if user_choice == computer_choice
 		puts "\nIt's a Tie! You both picked #{CHOICES[(computer_choice)]} :)"
 # User Wins
-	elsif (user_choice == 'r' && computer_choice == 's') || (user_choice == 's' && computer_choice == 'p') || (user_choice == 'r' && computer_choice == 'p')
+	elsif (user_choice == 'r' &amp;&amp; computer_choice == 's') || (user_choice == 's' &amp;&amp; computer_choice == 'p') || (user_choice == 'r' &amp;&amp; computer_choice == 'p')
 		puts "\nYou won! You picked #{CHOICES[(user_choice)]} and the computer picked #{CHOICES[(computer_choice)]}."
 	else
-		puts "\nThe computer won! You picked #{CHOICES[(user_choice)]} and the computer picked #{CHOICES[(computer_choice)]}."
+		puts "\n The computer won! You picked #{CHOICES[(user_choice)]} and the computer picked #{CHOICES[(computer_choice)]}."
 	end
 
 # Replay logic
@@ -45,3 +50,4 @@ loop do
 	play_again_choice = gets.chomp.downcase
 	replay(play_again_choice)
 end
+#MAIN APPLICATION ENDS#
