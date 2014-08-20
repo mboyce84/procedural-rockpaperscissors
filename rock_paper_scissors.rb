@@ -20,7 +20,7 @@ end
 
 #MAIN APPLICATION BEGINS#
 # Hash for rock, paper scissors game setup
-CHOICES = {'p' =&gt; 'paper', 'r' =&gt; 'rock', 's' =&gt; 'scissors'}
+CHOICES = {'p' => 'paper', 'r' => 'rock', 's' => 'scissors'}
 
 puts "\n---------MjB's Rock Paper Scissors Ruby Game---------"
 puts "\nRules: Rock defeats (breaks) Scissors, Scissors defeats (cuts) Paper and Paper defeats (covers) Rock. This game is played against the computer."
@@ -39,7 +39,7 @@ loop do
 	if user_choice == computer_choice
 		puts "\nIt's a Tie! You both picked #{CHOICES[(computer_choice)]} :)"
 # User Wins
-	elsif (user_choice == 'r' &amp;&amp; computer_choice == 's') || (user_choice == 's' &amp;&amp; computer_choice == 'p') || (user_choice == 'r' &amp;&amp; computer_choice == 'p')
+	elsif (user_choice == 'r' && computer_choice == 's') || (user_choice == 's' && computer_choice == 'p') || (user_choice == 'r' && computer_choice == 'p')
 		puts "\nYou won! You picked #{CHOICES[(user_choice)]} and the computer picked #{CHOICES[(computer_choice)]}."
 	else
 		puts "\n The computer won! You picked #{CHOICES[(user_choice)]} and the computer picked #{CHOICES[(computer_choice)]}."
