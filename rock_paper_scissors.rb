@@ -1,30 +1,47 @@
-#Rock, Paper, Scissors Ruby Game
-#Rock defeats (breaks) Scissors.
-#Scissors defeats (cuts) Paper.
-#Paper defeats (covers) Rock.
+# MjB's Rock, Paper, Scissors Ruby Game
 
-def winner ()
-
+# Method for the replay logic and input validation
+def replay(play_again_choice)
+	if play_again_choice == 'y' || play_again_choice == 'yes'
+		puts "\n---------Time for a rematch!---------\n"
+	elsif play_again_choice == 'n' || play_again_choice == 'no'
+		puts "\n---------Thanks for playing!---------\n"
+		exit
+	else
+		puts "\nInvalid response entered. Would You Like to Play again? (Y/N)"
+		play_again_choice = gets.chomp.downcase
+		replay(play_again_choice)
+	end
 end
 
-puts "Play Paper Rock Scissors"
-puts "Choose one: (P/R/S)"
-user_choice = gets.chomp
+# Hash for rock, paper scissors game setup
+CHOICES = {'p' => 'paper', 'r' => 'rock', 's' => 'scissors'}
 
-cpu_array = ["Rock", "Paper", "Scissors"]
-cpu_array = cpu_array.sample
+puts "\n---------MjB's Rock Paper Scissors Ruby Game---------"
+puts "\nRules: Rock defeats (breaks) Scissors, Scissors defeats (cuts) Paper and Paper defeats (covers) Rock. This game is played against the computer."
 
-if user_choice == 'p'
-	puts "You picked Paper and computer picked " + cpu_array
-elsif user_choice == 'r'
-	puts "You picked Rock and computer picked " + cpu_array
-elsif user_choice == 's'
-	puts "You picked Scissors and computer picked " + cpu_array
-else
-	puts "Invalid Selection"
+loop do
+# Player makes a pick
+	begin
+		puts "\nChoose your weapon: (R/P/S)"
+		user_choice = gets.chomp
+	end until CHOICES.keys.include?(user_choice)
+
+# Computer makes a pick
+	computer_choice = CHOICES.keys.sample
+
+# Tie condition
+	if user_choice == computer_choice
+		puts "\nIt's a Tie! You both picked #{CHOICES[(computer_choice)]} :)"
+# User Wins
+	elsif (user_choice == 'r' && computer_choice == 's') || (user_choice == 's' && computer_choice == 'p') || (user_choice == 'r' && computer_choice == 'p')
+		puts "\nYou won! You picked #{CHOICES[(user_choice)]} and the computer picked #{CHOICES[(computer_choice)]}."
+	else
+		puts "\n The computer won! You picked #{CHOICES[(user_choice)]} and the computer picked #{CHOICES[(computer_choice)]}."
+	end
+
+# Replay logic
+	puts "\nWould you like to play another round of Rock, Paper, Scissors? (Y/N)"
+	play_again_choice = gets.chomp.downcase
+	replay(play_again_choice)
 end
-
-puts "Play again? (Y/N)"
-play_again = gets.chomp
-	
-	
